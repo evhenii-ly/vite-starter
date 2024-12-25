@@ -1,0 +1,4 @@
+@mixin link-hover {
+  color: var(--color-product-light-blue);
+  text-shadow: 0 0 rem(25) rgb(82 135 237 / 70%);
+}

@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+@mixin center-vertically {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@mixin pad-ratio($x, $y, $selector: img) {
+  position: relative;
+  height: 0;
+  padding: 0 0 math.percentage($y / $x);
+
+  #{$selector} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin center-box {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}

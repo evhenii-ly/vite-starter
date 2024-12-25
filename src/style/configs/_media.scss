@@ -1,0 +1,35 @@
+/* stylelint-disable */
+
+/*====
+ BREAKPOINTS
+ ====*/
+$min: 360px;
+$sm: 577px;
+$sm-l: 681px;
+$md: 769px;
+$lg: 1025px;
+$xl: 1281px;
+$xxl: 1441px;
+$xxxl: 1601px;
+
+:root {
+  --mq-min: #{$min};
+  --mq-phone: #{$sm};
+  --mq-phone-lg: #{$sm-l};
+  --mq-tablet-small: #{$md};
+  --mq-tablet: #{$lg};
+  --mq-laptop: #{$xl};
+  --mq-laptop-large: #{$xxl};
+  --mq-desktop: #{$xxxl};
+}
+
+$breakpoints: (
+  "min": $min,
+  "phone": $sm,
+  "phone-lg": $sm-l,
+  "tablet-small": $md,
+  "tablet": $lg,
+  "laptop": $xl,
+  "laptop-large": $xxl,
+  "desktop": $xxxl
+);

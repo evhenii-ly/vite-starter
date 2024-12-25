@@ -1,0 +1,43 @@
+/* stylelint-disable */
+$mq: (
+  p: "print",
+  s: "screen",
+  ld: "(orientation: landscape)",
+  pt: "(orientation: portrait)",
+  hd: "handheld",
+  r2: ("(-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi)"),
+  r3: ("(-webkit-min-device-pixel-ratio: 3), (min-resolution: 3dppx), (min-resolution: 300dpi)"),
+  ar169: ("device-aspect-ratio: 16/9")
+) !default;
+
+$zindex: (
+  back: -1000,
+  null: 0,
+  default: 1,
+  sidebar: 900,
+  top: 1000,
+  base: 1000,
+  mobile-bottom: 1000,
+  lang-switcher: 1001,
+  header-logo: 1001,
+  header: 1001,
+  search-overlay: 1001,
+  search: 1002,
+  burger: 1002,
+  dropdown: 1002,
+  product-filter: 1002,
+  header-overlay: 1003,
+  header-nav: 1004,
+  footer: 1100,
+  cookie: 1100,
+  mobile-menu: 1100,
+  self-treatment: 1100,
+  search-mobile: 1101,
+  drawer: 1101,
+  overlay: 1103,
+  tooltip: 1104,
+  popup: 1104,
+  modal: 1500,
+  toast: 1501,
+  zoomable: 1502,
+) !default;

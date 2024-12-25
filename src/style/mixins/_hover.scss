@@ -1,0 +1,15 @@
+@mixin hover($touch: true) {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if $touch == true {
+    @media (hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}

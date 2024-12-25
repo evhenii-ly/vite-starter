@@ -1,0 +1,12 @@
+@mixin box($value, $isCssVar: false, $isVw: false) {
+  @if $isCssVar == true {
+    width: $value;
+    height: $value;
+  } @else if $isVw == true {
+    width: $value;
+    height: $value;
+  } @else {
+    width: rem($value);
+    height: rem($value);
+  }
+}

@@ -1,0 +1,9 @@
+.header {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-height);
+    padding: 0 var(--container-indent-x);
+  }
+}

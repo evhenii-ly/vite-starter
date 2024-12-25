@@ -1,0 +1,158 @@
+@use 'sass:math';
+@use '../functions/functions';
+@use '../configs/configs';
+@use '../mixins/mixins';
+
+:root {
+  --scroll-width: 0px;
+  --header-height: #{functions.rem(96)};
+  --container-width: #{functions.rem(1650)};
+  --container-indent-x: #{functions.rem(40)};
+  --border-radius-base: #{functions.rem(10)};
+  --border-radius-sm: #{functions.rem(4)};
+  --border-base: #{functions.rem(1)} solid var(--color-primary-gray);
+  --content-indent: #{functions.rem(160)};
+
+  @include mixins.mq('desktop') {
+    --container-width: #{functions.rem(1480)};
+    --content-indent: #{functions.rem(112)};
+  }
+
+  @include mixins.mq('laptop-large') {
+    --container-width: #{functions.rem(1320)};
+    --header-height: #{functions.rem(80)};
+  }
+
+  @include mixins.mq('laptop') {
+    --container-width: #{functions.rem(1160)};
+    --content-indent: #{functions.rem(80)};
+    --header-height: #{functions.rem(61)};
+  }
+
+  @include mixins.mq('tablet') {
+    --container-width: 100%;
+  }
+
+  @include mixins.mq('phone') {
+    --container-indent-x: #{functions.rem(16)};
+    --content-indent: #{functions.rem(60)};
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: (math.div(20px, 16px)) * 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  font: var(--fs-base) / var(--lh-base) var(--ff-base);
+  font-variation-settings: "wdth" 100;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased; // Make text look good on mac(Tim Van Damme test)
+  color: var(--color-primary-blue-900);
+  text-rendering: optimizelegibility; // The browser emphasizes legibility over rendering speed and geometric precision. This enables kerning and optional ligatures. https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering
+  background-color: var(--color-primary-gray);
+}
+
+body.preload * {
+  transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+  animation-duration: 0s !important;
+}
+
+::selection {
+  color: var(--color-primary-white);
+  background-color: var(--color-primary-blue-900);
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  background: transparent;
+  transition: color 0.2s;
+
+  @include mixins.hover {
+    color: var(--color-link-hover);
+    text-decoration: none;
+  }
+}
+
+p {
+  font-weight: 400;
+}
+
+.overflow {
+  overflow-y: hidden;
+  height: 100%;
+  margin-right: var(--scroll-width);
+}
+
+.truncate {
+  overflow: hidden;
+  max-height: var(--truncate-height, auto);
+  transition: max-height 0.3s ease;
+
+  &--line-clamped {
+    @include mixins.line-clamp(9);
+  }
+
+  &--expanded {
+    max-height: var(--truncate-height-expanded, auto);
+  }
+
+  &__inner {
+    > * {
+      // display: inline-block;
+      // width: 100%;
+    }
+  }
+}
+
+.animation-trigger {
+  .animated-heading,
+  .animated-text,
+  .animated-misc,
+  .animated-right,
+  .animated-left,
+  .animated-fade-in {
+    opacity: 0;
+  }
+}
+
+.animation-start {
+  .animated-heading {
+    animation: content-appearing 1.2s forwards;
+  }
+
+  .animated-text {
+    animation: content-appearing 1.2s forwards 1.2s;
+  }
+
+  .animated-misc {
+    animation: content-appearing 0.8s forwards 2.4s;
+  }
+
+  .animated-fade-in {
+    animation: fadeInEffect 1.3s forwards 0.5s;
+  }
+}
