@@ -8,42 +8,61 @@
            height="33">
     </a>
 
-    <nav id="js-nav-wrapper" class="header__nav header-nav">
-      <a href="#" class="header-nav__link">
-        <span class="header-nav__link-text">Link</span>
-      </a>
-
-      <div class="header-nav__link header-dropdown">
-        <span class="header-nav__link-text">
-          Link
-
-          {{> icons/nav-arrow-down class="header-nav__link-text-icon" }}
-        </span>
-
-        <div class="header-dropdown__list">
-          <a href="#" class="header-dropdown__link">Link</a>
-          <a href="#" class="header-dropdown__link">Link</a>
-        </div>
-      </div>
-      <a href="#" class="header-nav__link">
-        <span class="header-nav__link-text">Link</span>
-      </a>
-
-      <button type="button"
-              class="button button--primary button--sm header__contact header__contact--mobile">
-        Button
-      </button>
+    <nav class="header-nav" uk-dropnav>
+      <ul class="header-nav__list">
+        <li class="header-nav__item">
+          <span class="header-nav__link header-nav__link--active">Active</span>
+        </li>
+        <li class="header-nav__item">
+          <a href="#" class="header-nav__link">
+            Parent <span class="header-nav__parent-icon" uk-drop-parent-icon></span>
+          </a>
+          <div class="header-nav__dropdown">
+            <ul class="header-nav__dropdown-list">
+              <li class="header-nav__item">
+                <a href="#" class="header-nav__link">Active</a>
+              </li>
+              <li class="header-nav__item">
+                <a href="#" class="header-nav__link">Item</a>
+              </li>
+              <li class="header-nav__item">
+                <a href="#" class="header-nav__link">Item</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="header-nav__item">
+          <a href="#" class="header-nav__link">
+            Parent <span class="header-nav__parent-icon" uk-drop-parent-icon></span>
+          </a>
+          <div class="header-nav__dropdown">
+            <ul class="header-nav__dropdown-list">
+              <li class="header-nav__item header-nav__item--active">
+                <a href="#" class="header-nav__link">Active</a>
+              </li>
+              <li class="header-nav__item">
+                <a href="#" class="header-nav__link">Item</a>
+              </li>
+              <li class="header-nav__item">
+                <a href="#" class="header-nav__link">Item</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="header-nav__item">
+          <a href="#" class="header-nav__link">Item</a>
+        </li>
+      </ul>
     </nav>
 
-    <div class="lang-switcher header__lang">
-      <span class="lang-switcher__current">
-        ua
-
-        {{> icons/nav-arrow-down class="lang-switcher__arrow-icon" }}
-      </span>
-
-      <div class="lang-switcher__list">
-        <a href="#" class="lang-switcher__link">en</a>
+    <div class="lang-switcher">
+      <button class="lang-switcher__current" type="button">
+        EN
+        <span uk-drop-parent-icon></span>
+      </button>
+      <div uk-dropdown="mode: click" class="lang-switcher__list">
+        <a href="#" class="lang-switcher__item">FR</a>
+        <a href="#" class="lang-switcher__item">UA</a>
       </div>
     </div>
 
@@ -54,7 +73,7 @@
 
     <button class="header__burger burger js-nav-button"
             type="button"
-            aria-label="Open navigation">
+            aria-label="Open header-nav">
       <span class="burger__line"></span>
       <span class="burger__line"></span>
       <span class="burger__line"></span>

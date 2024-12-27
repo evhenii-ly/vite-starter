@@ -5,7 +5,7 @@ const scrollbarShiftFix = () => {
   const root = document.documentElement;
   const scrollWidth = getScrollbarWidth();
 
-  root.style.setProperty("--scroll-width", scrollWidth + "px");
+  root.style.setProperty('--scroll-width', scrollWidth + 'px');
 };
 
 export default scrollbarShiftFix;

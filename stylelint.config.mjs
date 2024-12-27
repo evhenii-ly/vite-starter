@@ -15,6 +15,26 @@ export default {
         severity: 'warning',
         unspecified: 'bottomAlphabetical',
       }
-    ]
+    ],
+    'declaration-empty-line-before': [
+      'never',
+      {
+        except: ['after-comment'],
+        ignore: ['after-declaration', 'inside-single-line-block', 'before-comment'],
+      },
+    ],
+    'no-descending-specificity': null,
+    'color-hex-length': 'short',
+    'block-no-empty': true,
+    'selector-class-pattern': [
+      '^[a-z0-9_-]+(__[a-z0-9_-]+)?(--[a-z0-9_-]+)?$',
+      {
+        resolveNestedSelectors: true,
+        message:
+          'Class names must follow the BEM convention: block__element–modifier.',
+      },
+    ],
+    'max-nesting-depth': 3,
+    'selector-max-id': 0,
   }
 };

@@ -1,0 +1,19 @@
+@use "../../../core/functions/functions";
+
+.footer {
+  background-color: var(--color-primary-black);
+
+  &__container {
+    padding-top: functions.rem(10);
+    padding-bottom: functions.rem(10);
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  &__bottom {
+    color: var(--color-primary-white);
+    text-align: right;
+  }
+}

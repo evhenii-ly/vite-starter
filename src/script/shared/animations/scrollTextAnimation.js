@@ -1,7 +1,7 @@
-import { BREAKPOINTS } from "../constants/index.js";
+import { BREAKPOINTS } from '../constants/index.js';
 
 const scrollTextAnimation = () => {
-  const animatedText = document.querySelectorAll(".special-font");
+  const animatedText = document.querySelectorAll('.special-font');
   const breakpointTabletSmall = window.matchMedia(
     `(min-width: ${BREAKPOINTS.tabletSmall}px)`,
   );

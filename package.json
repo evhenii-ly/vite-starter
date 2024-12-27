@@ -1,7 +1,10 @@
 {
   "name": "vite-starter",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "repository": "https://gitlab.com/Brainlab_team/vite-starter",
+  "author": "Yevhenii Luhovyi <lugovoy.evg@gmail.com>",
+  "description": "A starter template for Vite projects",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,5 +30,8 @@
     "vite-plugin-eslint2": "^5.0.3",
     "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-stylelint": "^6.0.0"
+  },
+  "dependencies": {
+    "uikit": "^3.21.16"
   }
 }

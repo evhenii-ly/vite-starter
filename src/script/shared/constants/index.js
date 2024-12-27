@@ -9,8 +9,7 @@ export const BREAKPOINTS = {
   desktop: 1601,
 };
 
-export const ERROR_MESSAGE = {};
-
-export const SUCCESS_MESSAGE = {
-  formSent: 'Your message was successfully sent',
+export const MESSAGES = {
+  error: '',
+  success: '',
 };

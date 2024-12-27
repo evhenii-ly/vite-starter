@@ -1,0 +1,33 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+
+.header-nav {
+  height: 100%;
+
+  &__list {
+    display: flex;
+    gap: functions.rem(20);
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__dropdown {
+    background-color: var(--color-primary-black);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: var(--color-primary-white);
+
+    &--active {
+      text-decoration: underline;
+    }
+  }
+
+  &__link-text {
+    display: flex;
+  }
+}

@@ -66,6 +66,7 @@ ul,
 dl {
   margin-top: 0;
   margin-bottom: 0;
+  padding-left: 0;
 }
 
 ol ol,
@@ -152,6 +153,7 @@ button {
   padding: 0;
   background: none;
   border: none;
+  color: inherit;
 }
 
 button:focus {
@@ -253,4 +255,14 @@ input[type="number"] {
 
 figure {
   margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
 }

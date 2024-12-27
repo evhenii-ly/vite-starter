@@ -1,0 +1,18 @@
+@use "../../../core/functions/functions";
+
+.cookie {
+  position: fixed;
+  z-index: functions.z-index(cookie);
+  bottom: functions.rem(30);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: var(--container-width);
+  background-color: var(--color-primary-white);
+
+  &--hide {
+    display: none;
+  }
+}

@@ -1,16 +1,15 @@
 import { BREAKPOINTS } from '@shared/constants';
-import '@style/pages/home.scss';
+import '@style/theme/pages/home.scss';
+import UIkit from 'uikit';
 
 const initPage = () => {
-  const tabletBreakpoint = window.matchMedia(
-    `(max-width: ${BREAKPOINTS.tablet - 1}px)`,
-  );
-  const phoneLgBreakpoint = window.matchMedia(
-    `(max-width: ${BREAKPOINTS.phoneLg - 1}px)`,
-  );
+  UIkit.dropnav('[uk-dropnav]', {
+    clsDrop: 'header-nav__dropdown',
+  });
 
-  if (!tabletBreakpoint.matches) {
-  }
+  UIkit.dropdown('.lang-switcher [uk-dropdown]', {
+    clsDrop: 'lang-switcher__list',
+  });
 };
 
 document.addEventListener('DOMContentLoaded', () => {

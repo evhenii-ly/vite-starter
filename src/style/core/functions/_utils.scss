@@ -1,6 +1,7 @@
 /* stylelint-disable */
 @use 'sass:math';
 @use 'sass:map';
+@use "../configs/configs";
 
 // Unit Conversion
 // strip-unit($num)
@@ -87,7 +88,7 @@ $text-base-size: 20px;
 // @returns   - boolean
 @function map-has-nested-keys($map, $keys...) {
   @each $key in $keys {
-    @if not map-has-key($map, $key) {
+    @if not map.has-key($map, $key) {
       @return false;
     }
     $map: map.get($map, $key);
@@ -113,10 +114,10 @@ $text-base-size: 20px;
 // @returns   - `map-deep-get($zindex, $indexes...)`
 // @source    - http://www.sitepoint.com/extra-map-functions-sass/
 @function z-index($indexes...) {
-  @if not map-has-nested-keys($zindex, $indexes...) {
+  @if not map-has-nested-keys(configs.$zindex, $indexes...) {
     @warn 'No index found for `#{inspect($indexes...)}` in $zindex map. Property omitted.';
   }
-  @return map-deep-get($zindex, $indexes...);
+  @return map-deep-get(configs.$zindex, $indexes...);
 }
 
 // bp()
@@ -125,10 +126,10 @@ $text-base-size: 20px;
 // @returns   - `map-deep-get($breakpoints, $point...)`
 // @source    - http://www.sitepoint.com/extra-map-functions-sass/
 @function bp($point...) {
-  @if not map-has-nested-keys($breakpoints, $point...) {
+  @if not map-has-nested-keys(configs.$breakpoints, $point...) {
     @warn 'No breakpoint found for `#{inspect($point...)}` in $breakpoints map. Property omitted.';
   }
-  @return map-deep-get($breakpoints, $point...);
+  @return map-deep-get(configs.$breakpoints, $point...);
 }
 
 // Positive or negative integer exponents
@@ -149,7 +150,7 @@ $text-base-size: 20px;
   @return $value;
 }
 
-@function border($color: var(--color-white), $size: $b-s-base, $style: "solid") {
+@function border($color: var(--color-white), $size: configs.$b-s-base, $style: "solid") {
   $border: $size + " " + $color + " " + $style;
 
   @return #{$border};

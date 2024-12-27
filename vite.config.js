@@ -12,6 +12,14 @@ export default defineConfig({
             '@shared': path.resolve(__dirname, './src/script/shared'),
         },
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                quietDeps: true,
+                silenceDeprecations: ['import'],
+            },
+        },
+    },
     plugins: [
         handlebars({
             partialDirectory: path.resolve(__dirname, 'partials'),

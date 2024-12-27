@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+// ===========================
+// Utilities
+// ===========================
+@use '../../core/functions/functions'; // SCSS functions for reusability
+@use '../../core/configs/configs';     // SCSS configuration (variables, etc.)
+@use '../../core/mixins/mixins';       // Mixins for commonly used patterns
+
+// ===========================
+// Normalize and Animations
+// ===========================
+@use '../../core/base/import';         // Base styles and resets
+@use '../../core/animations/animations'; // Keyframes and animations
+
+// ===========================
+// Libraries
+// ===========================
+// Add library imports here (e.g., third-party components or frameworks)
+
+
+// ===========================
+// Basic Modules
+// ===========================
+@use '../modules/modules';     // Shared modules like buttons, inputs, etc.
+
+
+// ===========================
+// Page-Specific
+// ===========================
+
+// @use '../sections/hero';    // Hero section styles
+// @use '../sections/footer';  // Footer styles
