@@ -1,0 +1,29 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+@use "../../modules/paragraph/xs";
+
+.footer-nav {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: functions.rem(16) functions.rem(24);
+    justify-content: center;
+    padding-right: functions.rem(12);
+    padding-left: functions.rem(12);
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    @extend %paragraph--xs;
+    /* stylelint-disable order/order */
+    --p-fw: 700;
+    --p-c: var(--color-primary-white);
+
+    @include mixins.hover {
+      color: var(--color-accent);
+    }
+  }
+}

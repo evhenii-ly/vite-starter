@@ -2,7 +2,7 @@
 @use "../../../core/configs/configs";
 @use "../../../core/mixins/mixins";
 
-.header {
+.app-header {
   @include mixins.transition;
 
   position: fixed;
@@ -12,8 +12,7 @@
   width: 100vw;
   height: var(--header-height);
   color: var(--color-primary-white);
-  background-color: var(--color-primary-black);
-  border-bottom: functions.rem(1) solid transparent;
+  background-color: #0D0B6A;
 
   &__container {
     display: flex;
@@ -21,5 +20,37 @@
     justify-content: space-between;
     height: 100%;
     padding: 0 var(--container-indent-x);
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  &__search {
+    @include mixins.transition(color);
+
+    display: flex;
+    margin-right: functions.rem(20);
+    margin-left: auto;
+
+    @include mixins.mq('laptop', min) {
+      margin-right: functions.rem(40);
+    }
+
+    @include mixins.hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__lang {
+    margin-right: functions.rem(8);
+  }
+
+  &__burger {
+    display: flex;
+
+    @include mixins.mq('tablet', min) {
+      display: none;
+    }
   }
 }

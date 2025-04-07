@@ -1,0 +1,10 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+
+.section {
+  padding-bottom: functions.rem(40);
+
+  @include mixins.mq('tablet', min) {
+    padding-bottom: functions.rem(56);
+  }
+}

@@ -1,0 +1,12 @@
+@use "../../../core/functions/functions";
+@use "heading";
+
+%heading--h3 {
+  --h-fs: #{functions.rem(18)};
+  --h-lh: 120%;
+}
+
+.heading--h3 {
+  @extend %heading;
+  @extend %heading--h3;
+}

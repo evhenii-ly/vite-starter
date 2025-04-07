@@ -1,0 +1,33 @@
+</main>
+
+<footer class="app-footer">
+  <div class="app-footer__container">
+    <div class="app-footer__group">
+      <a href="#" class="app-footer__logo">
+        <img src="logo.svg"
+             alt="KASZINÓK Logo"
+             class="footer__logo-image"
+             width="220"
+             height="25"
+             loading="lazy">
+      </a>
+
+      <nav class="app-footer__nav footer-nav" aria-label="Footer navigation">
+        <ul class="footer-nav__list">
+          {% set footerNavItems = ["Kaszínók", "Bónuszok", "Nyerőgépek", "Valódi pénzes kaszinók", "Játékok", "Fizetési módok", "Új kaszinók", "Rólunk", "Kapcsolat"] %}
+          {% for item in footerNavItems %}
+          <li class="footer-nav__item">
+            <a href="#" class="footer-nav__link">{{ item }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+{% include "partials/modules/cookie.html" %}
+
+<script type="module" src="/src/script/shared/commonInit.js"></script>
+</body>
+</html>

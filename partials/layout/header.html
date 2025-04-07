@@ -1,79 +1,37 @@
-<header class="header">
-  <div class="header__container">
-    <a href="#" class="header__logo">
+<header class="app-header">
+  <div class="container app-header__container">
+    <a href="#" class="app-header__logo">
       <img src="logo.svg"
-           alt=""
-           class="header__logo-image"
-           width="172"
-           height="33">
+           alt="KASZINÓK Logo"
+           class="app-header__logo-image"
+           width="159"
+           height="18">
     </a>
 
-    <nav class="header-nav" uk-dropnav>
+    <nav id="js-nav" class="header-nav" aria-label="Main navigation">
       <ul class="header-nav__list">
-        <li class="header-nav__item">
-          <span class="header-nav__link header-nav__link--active">Active</span>
-        </li>
-        <li class="header-nav__item">
-          <a href="#" class="header-nav__link">
-            Parent <span class="header-nav__parent-icon" uk-drop-parent-icon></span>
-          </a>
-          <div class="header-nav__dropdown">
-            <ul class="header-nav__dropdown-list">
-              <li class="header-nav__item">
-                <a href="#" class="header-nav__link">Active</a>
-              </li>
-              <li class="header-nav__item">
-                <a href="#" class="header-nav__link">Item</a>
-              </li>
-              <li class="header-nav__item">
-                <a href="#" class="header-nav__link">Item</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="header-nav__item">
-          <a href="#" class="header-nav__link">
-            Parent <span class="header-nav__parent-icon" uk-drop-parent-icon></span>
-          </a>
-          <div class="header-nav__dropdown">
-            <ul class="header-nav__dropdown-list">
-              <li class="header-nav__item header-nav__item--active">
-                <a href="#" class="header-nav__link">Active</a>
-              </li>
-              <li class="header-nav__item">
-                <a href="#" class="header-nav__link">Item</a>
-              </li>
-              <li class="header-nav__item">
-                <a href="#" class="header-nav__link">Item</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="header-nav__item">
-          <a href="#" class="header-nav__link">Item</a>
-        </li>
+        {% set headerNavItems = ["Kaszínók", "Bónuszok", "Nyerőgépek", "Valódi pénzes kaszinók", "Játékok", "Fizetési módok", "Új kaszinók", "Rólunk", "Kapcsolat"] %}
+        {% for item in headerNavItems %}
+          <li class="header-nav__item">
+            <a href="#" class="header-nav__link">{{ item }}</a>
+          </li>
+        {% endfor %}
       </ul>
     </nav>
 
-    <div class="lang-switcher">
-      <button class="lang-switcher__current" type="button">
-        EN
-        <span uk-drop-parent-icon></span>
-      </button>
-      <div uk-dropdown="mode: click" class="lang-switcher__list">
-        <a href="#" class="lang-switcher__item">FR</a>
-        <a href="#" class="lang-switcher__item">UA</a>
-      </div>
-    </div>
-
-    <button type="button"
-            class="button button--primary header__contact">
-      Залишити відгук
+    <button class="app-header__search"
+            type="button"
+            aria-label="Open search"
+            aria-expanded="false">
+      {% set icon = { class: "app-header__search-icon" } %}
+      {% include "partials/icons/search.svg" %}
     </button>
 
-    <button class="header__burger burger js-nav-button"
+    {% include "partials/modules/lang-switcher.html" %}
+
+    <button class="app-header__burger burger js-nav-button"
             type="button"
-            aria-label="Open header-nav">
+            aria-label="Open navigation">
       <span class="burger__line"></span>
       <span class="burger__line"></span>
       <span class="burger__line"></span>

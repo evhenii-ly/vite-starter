@@ -1,0 +1,55 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+@use "../../modules/paragraph/sm";
+
+.button {
+  $this: &;
+
+  --p-button-y: #{functions.rem(12)};
+  --p-button-x: #{functions.rem(24)};
+  --color-button: var(--color-primary-white);
+  --color-button__hover: var(--color-primary-white);
+  --bg-color-button: transparent;
+  --bg-color-button__hover: var(--bg-color-button);
+  --bd-color-button: var(--bg-color-button);
+  --bd-color-button__hover: var(--bg-color-button);
+
+  @extend %paragraph--sm;
+  @include mixins.transition;
+
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--p-button-y) var(--p-button-x);
+  font-family: var(--ff-primary), sans-serif;
+  font-weight: 500;
+  line-height: 150%;
+  color: var(--color-button);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--bg-color-button);
+  border: none;
+  border-radius: calc(var(--border-radius-base) / 2);
+
+  @include mixins.hover {
+    color: var(--color-button__hover);
+    background: var(--bg-color-button__hover);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    cursor: default;
+    user-select: none;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+  }
+}
+/* stylelint-disable no-invalid-position-at-import-rule */
+@import "type/primary";
+@import "size/sm";

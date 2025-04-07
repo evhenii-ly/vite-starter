@@ -1,9 +1,23 @@
-{{> layout/head }}
-{{> layout/header }}
+{% set app =  {
+title: "Home",
+style: "./style/pages/home.css"
+} %}
+
+{% include "partials/layout/head.html" %}
+{% include "partials/layout/header.html" %}
 
 <div class="page-home">
+  {% set breadcrumbs = { text: ["Editorial Principles"] } %}
+  {% include "partials/modules/breadcrumbs.html" %}
 
+<!--  Principles section -->
+  {% include "partials/sections/principles.html" %}
+  {% include "partials/sections/editorial.html" %}
+  {% include "partials/sections/team.html" %}
+<!--  Editorial section -->
+
+<!--  team section -->
 </div>
 
-{{> layout/footer }}
+{% include "partials/layout/footer.html" %}
 <script type="module" src="/src/script/pages/Home/index.js"></script>

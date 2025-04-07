@@ -1,0 +1,82 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: functions.rem(154);
+    padding: 0 functions.rem(15);
+    background: #8655F0 url("../../../image/media-card-header-bg.svg") functions.rem(15) center / contain repeat-x;
+    border-top-left-radius: var(--border-radius-base);
+    border-top-right-radius: var(--border-radius-base);
+
+    @include mixins.mq('tablet-small', min) {
+      min-height: functions.rem(214);
+      padding-left: functions.rem(60);
+    }
+
+    @include mixins.mq('tablet', min) {
+      min-height: functions.rem(304);
+      padding-left: functions.rem(149);
+    }
+  }
+
+  &__heading {
+    max-width: functions.rem(155);
+    margin-bottom: 0;
+    color: var(--color-primary-white);
+
+    @include mixins.mq('tablet-small', min) {
+      --h-fs: #{functions.rem(40)};
+
+      max-width: functions.rem(300);
+    }
+
+    @include mixins.mq('tablet', min) {
+      --h-fs: #{functions.rem(60)};
+    }
+  }
+
+  &__image-box {
+    position: relative;
+    right: 5%;
+    transform: rotate(8deg);
+    overflow: hidden;
+    flex-shrink: 0;
+    aspect-ratio: 17/15;
+    max-width: functions.rem(173);
+    border-radius: var(--border-radius-base);
+
+    @include mixins.mq('tablet-small', min) {
+      right: functions.rem(100);
+      aspect-ratio: 41/30;
+      max-width: functions.rem(280);
+    }
+
+    @include mixins.mq('tablet', min) {
+      max-width: functions.rem(412);
+    }
+  }
+
+  &__image {
+    @include mixins.object-cover;
+  }
+
+  &__body {
+    padding: functions.rem(26) functions.rem(15) functions.rem(21);
+    background: rgb(235 231 255);
+    background: linear-gradient(90deg, rgb(235 231 255) 0%, rgb(215 223 255) 100%);
+    border: var(--border-base);
+    border-bottom-right-radius: var(--border-radius-base);
+    border-bottom-left-radius: var(--border-radius-base);
+
+    @include mixins.mq('tablet', min) {
+      padding: functions.rem(36) functions.rem(36) functions.rem(34) functions.rem(33);
+    }
+  }
+}

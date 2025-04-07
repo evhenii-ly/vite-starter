@@ -1,0 +1,22 @@
+<div class="team-card {{ teamCard.class }}">
+  <div class="team-card__avatar-box">
+    <img src="webp/{{ teamCard.image }}.webp"
+         alt="{{ teamCard.name }}"
+         class="team-card__avatar"
+         width="128"
+         height="128"
+         loading="lazy">
+  </div>
+  <h3 class="heading heading--h3 team-card__name">{{ teamCard.name }}</h3>
+  <p class="paragraph team-card__text">{{ teamCard.text }}</p>
+  <div class="team-card__socials">
+    <a href="{{ teamCard.link }}" class="team-card__link">
+      {% set icon = { class: "team-card__link-icon" } %}
+      {% include "partials/icons/facebook.svg" %}
+    </a>
+    <a href="{{ teamCard.link }}" class="team-card__link">
+      {% set icon = { class: "team-card__link-icon" } %}
+      {% include "partials/icons/linkedin.svg" %}
+    </a>
+  </div>
+</div>

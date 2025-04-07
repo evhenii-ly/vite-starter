@@ -1,0 +1,21 @@
+@use "../../../core/functions/functions";
+
+%paragraph {
+  --p-ff: var(--ff-base);
+  --p-fw: 400;
+  --p-fs: #{functions.rem(16)};
+  --p-lh: 1.6;
+  --p-c: var(--color-text);
+  --p-ls: functions.rem(0.1);
+
+  font-family: var(--p-ff), sans-serif;
+  font-size: var(--p-fs);
+  font-weight: var(--p-fw);
+  line-height: var(--p-lh);
+  color: var(--p-c);
+  letter-spacing: var(--p-ls);
+}
+
+.paragraph {
+  @extend %paragraph;
+}

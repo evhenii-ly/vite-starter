@@ -5,33 +5,12 @@
 
 :root {
   --scroll-width: 0px;
-  --header-height: #{functions.rem(70)};
-  --container-width: #{functions.rem(1650)};
-  --container-indent-x: #{functions.rem(40)};
-  --border-radius-base: #{functions.rem(10)};
+  --header-height: #{functions.rem(56)};
+  --container-width: #{functions.rem(1144)};
+  --container-indent-x: #{functions.rem(15)};
+  --border-radius-base: #{functions.rem(16)};
   --border-radius-sm: #{functions.rem(4)};
-  --border-base: #{functions.rem(1)} solid var(--color-primary-black);
-
-  @include mixins.mq('desktop') {
-    --container-width: #{functions.rem(1480)};
-  }
-
-  @include mixins.mq('laptop-large') {
-    --container-width: #{functions.rem(1320)};
-  }
-
-  @include mixins.mq('laptop') {
-    --container-width: #{functions.rem(1160)};
-    --content-indent: #{functions.rem(80)};
-  }
-
-  @include mixins.mq('tablet') {
-    --container-width: 100%;
-  }
-
-  @include mixins.mq('phone') {
-    --container-indent-x: #{functions.rem(16)};
-  }
+  --border-base: #{functions.rem(1)} solid var(--color-stroke);
 }
 
 html {
@@ -47,13 +26,14 @@ body {
   flex-direction: column;
   height: 100%;
   min-height: 100vh;
+  padding-top: var(--header-height);
   font: var(--fs-base) / var(--lh-base) var(--ff-base);
   font-variation-settings: "wdth" 100;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased; // Make text look good on mac(Tim Van Damme test)
-  color: var(--color-primary-blue-900);
+  color: var(--color-primary-black);
   text-rendering: optimizelegibility; // The browser emphasizes legibility over rendering speed and geometric precision. This enables kerning and optional ligatures. https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering
-  background-color: var(--color-primary-gray);
+  background-color: var(--color-page-bg);
 }
 
 body.preload * {
@@ -63,7 +43,7 @@ body.preload * {
 
 ::selection {
   color: var(--color-primary-white);
-  background-color: var(--color-primary-blue-900);
+  background-color: var(--color-base);
 }
 
 main {
@@ -72,11 +52,16 @@ main {
 
 a {
   color: var(--color-link);
-  text-decoration: underline;
   background: transparent;
   transition: color 0.2s;
 
   @include mixins.hover {
     text-decoration: none;
   }
+}
+
+.overflow {
+  overflow-y: hidden;
+  height: 100%;
+  margin-right: var(--scroll-width);
 }

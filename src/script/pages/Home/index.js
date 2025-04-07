@@ -1,15 +1,22 @@
-import { BREAKPOINTS } from '@shared/constants';
 import '@style/theme/pages/home.scss';
-import UIkit from 'uikit';
 
 const initPage = () => {
-  UIkit.dropnav('[uk-dropnav]', {
-    clsDrop: 'header-nav__dropdown',
-  });
+  const divElement = document.querySelector('.team-section__list');
+  const wrapper = document.querySelector('.team-section__wrapper');
 
-  UIkit.dropdown('.lang-switcher [uk-dropdown]', {
-    clsDrop: 'lang-switcher__list',
-  });
+  function checkScrollEnd() {
+    const scrollLeft = divElement.scrollLeft;
+    const scrollWidth = divElement.scrollWidth;
+    const clientWidth = divElement.clientWidth;
+
+    wrapper.classList.toggle(
+      'team-section__wrapper--end',
+      scrollLeft + clientWidth >= scrollWidth,
+    );
+  }
+
+  // Добавляем обработчик события scroll
+  divElement.addEventListener('scroll', checkScrollEnd);
 };
 
 document.addEventListener('DOMContentLoaded', () => {

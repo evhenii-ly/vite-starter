@@ -1,10 +1,16 @@
 <div id="cookieNotifier" class="cookie cookie--hide">
   <div class="cookie__inner">
-    <span class="cookie__text">Lorem ipsum dolor sit amet <a href="#">Link</a></span>
+    <div class="cookie__content">
+      {% set icon = { class: "cookie__icon" } %}
+      {% include "partials/icons/cookie.svg" %}
+      <span class="cookie__text">
+      We use cookies to personalise content and ads, to provide social media features and to analyse our traffic.
+    </span>
+    </div>
     <button id="cookieAccept"
             type="button"
             class="button button--primary cookie__button">
-      Ok
+      <span class="button__text">Accept</span>
     </button>
   </div>
 </div>

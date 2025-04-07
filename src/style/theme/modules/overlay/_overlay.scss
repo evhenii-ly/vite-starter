@@ -1,0 +1,22 @@
+@use "../../../core/functions/functions";
+
+.overlay {
+  position: fixed;
+  z-index: functions.z-index(overlay);
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+
+  @supports (height: 100dvh) {
+    height: 100dvh;
+  }
+
+  @supports not (height: 100dvh) {
+    height: 100vh;
+  }
+
+  &--visible {
+    display: block;
+  }
+}

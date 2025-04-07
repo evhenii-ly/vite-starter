@@ -1,0 +1,45 @@
+@use "../../../../core/mixins/mixins";
+
+%button--primary {
+  --bg-color-button: linear-gradient(180deg, #8655F0 0%, #8655F0 63.3%, #2E2484 152.17%);
+
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    @include mixins.transition(opacity);
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: linear-gradient(180deg, #8655F0 0%, #2E2484 128.26%);
+  }
+
+  &::after {
+    background: #5339B2;
+  }
+
+  @include mixins.hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active::after {
+    opacity: 1;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+.button--primary {
+  @extend %button--primary;
+}

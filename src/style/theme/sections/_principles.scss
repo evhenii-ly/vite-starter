@@ -1,0 +1,24 @@
+@use "../../core/functions/functions";
+@use "../../core/mixins/mixins";
+
+.principles-section {
+  &__show-more {
+    scroll-margin-top: calc(var(--header-height) + #{functions.rem(16)});
+  }
+
+  &__content {
+    margin-bottom: functions.rem(52);
+
+    @include mixins.mq('tablet', min) {
+      margin-bottom: functions.rem(55);
+    }
+  }
+
+  &__heading {
+    text-align: center;
+
+    @include mixins.mq('tablet', min) {
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<nav class="container breadcrumbs-container {{ breadcrumbs.class }}"
+     aria-label="Breadcrumbs">
+  <ol class="breadcrumbs">
+    <li class="breadcrumbs__item">
+      <a href="#" class="breadcrumbs__link">Home</a>
+    </li>
+    <li class="breadcrumbs__item">
+      {% set icon = { class: "breadcrumbs__arrow" } %}
+      {% include "partials/icons/chevron-right.svg" %}
+    </li>
+
+    {% for item in breadcrumbs.text %}
+      <li class="breadcrumbs__item">
+        {% if loop.last %}
+          <span class="breadcrumbs__link breadcrumbs__link--active" aria-current="page">
+            {{ item | safe }}
+          </span>
+        {% else %}
+        <a href="#" class="breadcrumbs__link">{{ item | safe }}</a>
+        {% endif %}
+      </li>
+      {% if not loop.last %}
+        <li class="breadcrumbs__item">
+          {% set icon = { class: "breadcrumbs__arrow" } %}
+          {% include "partials/icons/chevron-right.svg" %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>

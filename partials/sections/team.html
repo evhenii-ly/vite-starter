@@ -1,0 +1,21 @@
+<div class="section team-section">
+  <div class="container">
+    <h2 class="heading heading--h2 team-section__heading">Our Editorial Team</h2>
+  </div>
+
+  <div class="team-section__wrapper">
+    <div class="container team-section__list">
+      {% set teamList = [
+      { image: "team-1", name: "Nancy Carrol", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", link: "#" },
+      { image: "team-2", name: "Adam Tile", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", link: "#" },
+      { image: "team-3", name: "Sarah Laws", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", link: "#" },
+      { image: "team-4", name: "Amanda Pitt", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", link: "#" }
+      ] %}
+
+      {% for teamCard in teamList %}
+      {% set teamCard = teamCard | merge({ class: "team-section__card" }) %}
+        {% include "partials/modules/team-card.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

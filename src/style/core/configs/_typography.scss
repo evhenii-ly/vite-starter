@@ -16,14 +16,11 @@ $line-height-base: 30px;
 
 // font family
 $font-family-fallback: 'Arial', sans-serif;
-$font-family-montserrat: 'Montserrat', sans-serif;
-$font-family-montserrat-alternates: 'MontserratAlternates', sans-serif;
-$font-family-base: $font-family-montserrat;
-$font-family-secondary: $font-family-montserrat-alternates;
+$font-family-lato: 'Lato', sans-serif;
+$font-family-base: $font-family-lato;
 
 :root {
   --ff-base: #{$font-family-base};
-  --ff-secondary: #{$font-family-secondary};
 }
 
 // Use $typefaces to render custom font using @font-face.
@@ -33,27 +30,23 @@ $font-family-secondary: $font-family-montserrat-alternates;
 // @style - {keyword} i.e. normal, italic
 
 $typefaces: (
-  'MontserratAlternates/SemiBold/MontserratAlternates': (
-    family: 'MontserratAlternates',
-    weight: 600,
+  'Lato/Regular/Lato-Regular': (
+    family: 'Lato',
+    weight: 400,
     style: normal,
   ),
-  'MontserratAlternates/Bold/MontserratAlternates': (
-    family: 'MontserratAlternates',
-    weight: 700,
-    style: normal,
-  ),
-  'Montserrat/Medium/Montserrat': (
-    family: 'Montserrat',
+  'Lato/Bold/Lato-Bold': (
+    family: 'Lato',
     weight: 500,
     style: normal,
   ),
-  'Montserrat/Bold/Montserrat': (
-    family: 'Montserrat',
-    weight: 700,
+  'Lato/Black/Lato-Black': (
+    family: 'Lato',
+    weight: 800,
     style: normal,
   ),
 );
+
 
 @if meta.variable-exists(typefaces) {
   @each $file, $option in $typefaces {
@@ -61,9 +54,9 @@ $typefaces: (
       font-family: map.get(map.get($typefaces, $file), family);
       font-style: map.get(map.get($typefaces, $file), style);
       font-weight: map.get(map.get($typefaces, $file), weight);
-      src: url('../../font/#{$file}.ttf') format('truetype'),
-      url('../../font/#{$file}.woff') format('woff'),
-      url('../../font/#{$file}.woff2') format('woff2');
+      src: url('../../../font/#{$file}.ttf') format('truetype'),
+      url('../../../font/#{$file}.woff') format('woff'),
+      url('../../../font/#{$file}.woff2') format('woff2');
       font-display: swap;
     }
   }

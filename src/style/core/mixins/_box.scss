@@ -1,3 +1,5 @@
+@use "../../core/functions/functions";
+
 @mixin box($value, $isCssVar: false, $isVw: false) {
   @if $isCssVar == true {
     width: $value;
@@ -6,7 +8,7 @@
     width: $value;
     height: $value;
   } @else {
-    width: rem($value);
-    height: rem($value);
+    width: functions.rem($value);
+    height: functions.rem($value);
   }
 }

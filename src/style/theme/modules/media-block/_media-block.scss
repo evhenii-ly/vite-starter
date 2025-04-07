@@ -1,0 +1,56 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+
+.media-block {
+  display: flex;
+  flex-direction: column;
+  margin-top: functions.rem(129);
+  padding: 0 functions.rem(15) functions.rem(25);
+  background: linear-gradient(71.26deg, #30084F 8.64%, #191774 79.37%);
+  border: var(--border-base);
+  border-radius: var(--border-radius-base);
+
+  @include mixins.mq('tablet', min) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: functions.rem(56);
+    padding: 0 functions.rem(18) 0 functions.rem(32);
+  }
+
+  &__image-box {
+    transform: rotate(7deg);
+    overflow: hidden;
+    flex-shrink: 0;
+    aspect-ratio: 24/21;
+    max-width: functions.rem(250);
+    margin: functions.rem(-75) auto functions.rem(30);
+    border-radius: var(--border-radius-base);
+
+    @include mixins.mq('tablet', min) {
+      aspect-ratio: 33/28;
+      max-width: functions.rem(330);
+      margin: functions.rem(3) functions.rem(16) 0 functions.rem(20);
+    }
+  }
+
+  &__content {
+    @include mixins.mq('tablet', min) {
+      max-width: functions.rem(718);
+      padding-top: functions.rem(30);
+      padding-bottom: functions.rem(45);
+    }
+  }
+
+  &__image {
+    @include mixins.object-cover;
+  }
+
+  &__heading {
+    --h-c: var(--color-accent);
+    --h-lh: normal;
+  }
+
+  &__text {
+    --p-c: var(--color-primary-white);
+  }
+}

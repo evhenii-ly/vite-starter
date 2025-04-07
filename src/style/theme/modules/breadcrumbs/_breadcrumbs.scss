@@ -1,0 +1,47 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+@use "../../modules/paragraph/sm";
+
+.breadcrumbs {
+  --breadcrumbs-indent: #{functions.rem(28)};
+  --breadcrumbs-indent-total: calc(var(--header-height) + var(--breadcrumbs-indent) + #{functions.rem(20)});
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0 calc(var(--container-indent-x) * -1) functions.rem(26);
+  padding: 0 calc(var(--container-indent-x) * 1);
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    @extend %paragraph--sm;
+
+    position: relative;
+    color: #878C97;
+
+    @include mixins.hover {
+      &:not(.breadcrumbs__link--active) {
+        color: var(--color-primary-light-blue);
+      }
+    }
+
+    &--active {
+      pointer-events: none;
+      color: var(--color-additional-dark-gray);
+    }
+  }
+
+  &__arrow {
+    margin-right: functions.rem(8);
+    margin-left: functions.rem(8);
+    font-size: functions.rem(7);
+  }
+}

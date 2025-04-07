@@ -24,10 +24,54 @@
 // ===========================
 @use '../modules/modules';     // Shared modules like buttons, inputs, etc.
 
+// ===========================
+// Page-Specific Modules
+// ===========================
+@use "../modules/media-card/media-card";
+@use "../modules/show-more/show-more";
+@use "../modules/more-button/more-button";
+@use "../modules/media-block/media-block";
+@use "../modules/team-card/team-card";
+
 
 // ===========================
 // Page-Specific
 // ===========================
 
-// @use '../sections/hero';    // Hero section styles
-// @use '../sections/footer';  // Footer styles
+ @use '../sections/principles';
+ @use '../sections/editorial';
+ @use '../sections/team';
+
+.page-home {
+  $bg-height: functions.rem(520);
+
+  position: relative;
+  padding-top: functions.rem(16);
+  background: url("../../../image/page-bg-mobile.svg") top / contain no-repeat;
+
+  @include mixins.mq('tablet', min) {
+    background-image: url("../../../image/page-bg.svg");
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    width: 100%;
+  }
+
+  &::before {
+    top: 0;
+    height: $bg-height;
+    background: var(--color-bg-2);
+  }
+
+  &::after {
+    top: $bg-height;
+    transform: translateY(-20%);
+    height: functions.rem(124);
+    background: linear-gradient(180deg, #EAEBFD 0%, rgba(234 235 253 / 0%) 100%);
+  }
+}

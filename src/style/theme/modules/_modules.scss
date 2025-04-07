@@ -1,6 +1,26 @@
-@use "container/container";
+// Heading
+@use "heading/heading";
+@use "heading/h1";
+@use "heading/h2";
+@use "heading/h3";
+@use "heading/h4";
+
+// Paragraph
+@use "paragraph/paragraph";
+@use "paragraph/sm";
+@use "paragraph/xs";
+
+// Misc
 @use "header/header";
 @use "header/header-nav";
+@use "burger/burger";
 @use "footer/footer";
+@use "footer/footer-nav";
+@use "button/button";
+@use "icon/icon";
+@use "overlay/overlay";
+@use "section/section";
+@use "container/container";
+@use "breadcrumbs/breadcrumbs";
 @use "lang-switcher/lang-switcher";
 @use "cookie/cookie";

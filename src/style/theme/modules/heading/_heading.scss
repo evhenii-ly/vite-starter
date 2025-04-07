@@ -1,0 +1,26 @@
+@use "../../../core/functions/functions";
+
+%heading {
+  --h-w: 500;
+  --h-fs: #{functions.rem(30)};
+  --h-lh: 100%;
+  --h-ls: normal;
+  --h-mb: 0;
+  --h-c: var(--color-primary-black);
+
+  margin-bottom: var(--h-mb);
+  font-family: var(--ff-base), sans-serif;
+  font-size: var(--h-fs);
+  font-weight: var(--h-w);
+  line-height: var(--h-lh);
+  color: var(--h-c);
+  letter-spacing: var(--h-ls);
+
+  span {
+    color: var(--color-primary-light-blue);
+  }
+}
+
+.heading {
+  @extend %heading;
+}

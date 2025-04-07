@@ -1,66 +1,34 @@
 const readmore = () => {
-  const truncateEl = document.querySelector('.truncate');
-  const moreButton = document.querySelector('[data-more-button]');
-  const truncateInnerEl = document.querySelector('.truncate__inner');
+  const moreButtons = document.querySelectorAll('[data-more-button]');
 
-  if (!truncateEl || !moreButton || !truncateInnerEl) {
+  if (!moreButtons.length) {
     return false;
   }
 
-  const divHeight = truncateInnerEl.scrollHeight
-  const lineHeight = parseInt(window.getComputedStyle(truncateInnerEl).lineHeight);
-  const lines = divHeight / lineHeight;
+  moreButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const target = event.currentTarget;
+      const targetText = target.querySelector('.more-button__text');
+      const parentContainer = target.closest('.show-more');
+      const buttonTextArr = target.dataset.moreButton.split(', ');
 
-  if (lines < 10) {
-    moreButton.style.display = "none";
+      parentContainer
+        .querySelector('.show-more__content')
+        .classList.toggle('show-more__content--expanded');
 
-    return false;
-  }
+      if (parentContainer.querySelector('.show-more__content--expanded')) {
+        targetText.textContent = buttonTextArr[1];
+      } else {
+        targetText.textContent = buttonTextArr[0];
 
-  const setTruncateHeight = () => {
-    const truncateHeight = truncateEl.scrollHeight;
-    truncateEl.style.setProperty("--truncate-height", `${truncateHeight}px`);
-  };
-
-  const open = () => {
-    truncateEl.classList.remove('truncate--line-clamped');
-    window.requestAnimationFrame(() => {
-      const truncateInnerHeight = truncateInnerEl.scrollHeight;
-      truncateEl.style.setProperty("--truncate-height-expanded", `${truncateInnerHeight}px`);
-      truncateEl.classList.add('truncate--expanded');
-    });
-  };
-
-  const close = () => {
-    truncateEl.classList.remove('truncate--expanded');
-    window.requestAnimationFrame(() => {
-      setTruncateHeight();
-      truncateEl.classList.add('truncate--line-clamped');
-
-      const parentSection = truncateEl.closest(".section");
-      if (parentSection) {
-        parentSection.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          parentContainer.scrollIntoView({
+            behavior: 'smooth',
+          });
+        }, 100);
       }
     });
-  };
-
-  moreButton.addEventListener('click', (event) => {
-    const target = event.currentTarget;
-
-    event.preventDefault();
-
-    if (truncateEl.classList.contains('truncate--expanded')) {
-      target.innerText = target.dataset.readmoreFull;
-      close();
-    } else {
-      target.innerText = target.dataset.readmoreLess;
-      open();
-    }
   });
-
-  window.addEventListener('resize', setTruncateHeight);
-  window.addEventListener('DOMContentLoaded', setTruncateHeight);
-  window.addEventListener('load', setTruncateHeight);
 };
 
 export default readmore;

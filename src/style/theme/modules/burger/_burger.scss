@@ -1,0 +1,53 @@
+@use "../../../core/functions/functions";
+
+.burger {
+  $this: &;
+
+  --burger-width: #{functions.rem(44)};
+  --burger-height: #{functions.rem(40)};
+  --burger-padding: #{functions.rem(12)};
+
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--burger-width);
+  height: var(--burger-height);
+  padding: var(--burger-padding);
+  appearance: none;
+  background: transparent;
+  border: 0;
+  transition: transform 0.2s;
+
+  &--active {
+    #{$this}__line {
+      width: functions.rem(28);
+
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(functions.rem(2), functions.rem(8));
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(functions.rem(2), functions.rem(-8));
+      }
+    }
+  }
+
+  &__line {
+    will-change: transform, opacity, width;
+    position: relative;
+    width: 100%;
+    height: functions.rem(2);
+    opacity: 1;
+    background-color: var(--color-primary-white);
+    border-radius: functions.rem(4);
+    transition: transform 0.3s, opacity 0.3s, width 0.3s;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

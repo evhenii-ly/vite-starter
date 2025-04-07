@@ -2,16 +2,18 @@
   "name": "vite-starter",
   "private": true,
   "version": "1.0.0",
-  "repository": "https://gitlab.com/Brainlab_team/vite-starter",
   "author": "Yevhenii Luhovyi <lugovoy.evg@gmail.com>",
   "description": "A starter template for Vite projects",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
     "style:fix": "stylelint '**/*.scss' --fix"
   },
+  "browserslist": [
+    "last 3 versions"
+  ],
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@types/node": "^22.10.2",
@@ -22,16 +24,19 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "imagemin": "^9.0.1",
+    "imagemin-webp": "^8.0.0",
+    "postcss-sort-media-queries": "^5.2.0",
     "prettier": "^3.4.2",
     "sass": "^1.83.0",
+    "sharp": "^0.34.0",
     "stylelint-config-clean-order": "^6.1.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "vite": "^6.0.3",
     "vite-plugin-eslint2": "^5.0.3",
-    "vite-plugin-handlebars": "^2.0.0",
+    "vite-plugin-image-optimizer": "^1.1.8",
+    "vite-plugin-nunjucks": "^0.2.0",
     "vite-plugin-stylelint": "^6.0.0"
   },
-  "dependencies": {
-    "uikit": "^3.21.16"
-  }
+  "dependencies": {}
 }

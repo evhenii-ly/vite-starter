@@ -16,6 +16,7 @@ export default {
         unspecified: 'bottomAlphabetical',
       }
     ],
+    "scss/percent-placeholder-pattern": null,
     'declaration-empty-line-before': [
       'never',
       {
@@ -23,6 +24,7 @@ export default {
         ignore: ['after-declaration', 'inside-single-line-block', 'before-comment'],
       },
     ],
+    'custom-property-pattern': null,
     'no-descending-specificity': null,
     'color-hex-length': 'short',
     'block-no-empty': true,

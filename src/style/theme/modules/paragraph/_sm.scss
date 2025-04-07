@@ -1,0 +1,12 @@
+@use "../../../core/functions/functions";
+@use "paragraph";
+
+%paragraph--sm {
+  @extend %paragraph;
+  /* stylelint-disable order/order */
+  --p-fs: #{functions.rem(14)};
+}
+
+.paragraph--sm {
+  @extend %paragraph--sm;
+}

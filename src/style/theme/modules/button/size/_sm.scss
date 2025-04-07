@@ -1,0 +1,6 @@
+@use "../../../../core/functions/functions";
+
+.button--sm {
+  --p-button-y: #{functions.rem(10)};
+  --p-button-x: #{functions.rem(20)};
+}

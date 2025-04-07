@@ -20,7 +20,7 @@ This project is built with Vite. It follows best practices for clean code organi
 1.	Clone the repository:
 
 ```
-git clone git@gitlab.com:Brainlab_team/vite-starter.git
+git clone git@github.com:evhenii-ly/vite-starter.git
 cd vite-starter
 ```
 
@@ -117,8 +117,6 @@ For styling, we use the **BEM** (Block-Element-Modifier) methodology. This ensur
 *	When modifying or overriding UIKit styles, always update the _UIKit.scss file to maintain consistency.
 *	New components should have their styles added under theme/modules/.
 *	Follow SCSS best practices for maintainability, such as using variables, mixins, and functions where applicable.
-
-This structure ensures that styles remain organized and scalable as the project grows.
 
 4. Modern Build Tools
    *	**Vite**: Superfast development and build tool.

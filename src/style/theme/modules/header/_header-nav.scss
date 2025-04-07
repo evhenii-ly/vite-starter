@@ -1,15 +1,55 @@
 @use "../../../core/functions/functions";
 @use "../../../core/mixins/mixins";
+@use "../../modules/paragraph/xs";
 
 .header-nav {
-  height: 100%;
+  @include mixins.transition;
+
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  transform: translateX(100vw);
+  overflow-y: auto;
+  width: 100%;
+  padding: functions.rem(16) var(--container-indent-x);
+  opacity: 0;
+  background-color: #0D0B6A;
+
+  @supports (height: 100dvh) {
+    height: calc(100dvh - var(--header-height));
+  }
+
+  @supports not (height: 100dvh) {
+    height: calc(100vh - var(--header-height));
+  }
+
+  @include mixins.mq('tablet', min) {
+    position: static;
+    transform: translateX(0);
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    padding: 0;
+    opacity: 1;
+    background-color: transparent;
+  }
+
+  &--visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
 
   &__list {
     display: flex;
-    gap: functions.rem(20);
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+
+    @include mixins.mq('tablet', min) {
+      flex-direction: row;
+      gap: functions.rem(20);
+    }
   }
 
   &__dropdown {
@@ -17,13 +57,25 @@
   }
 
   &__link {
+    @extend %paragraph--xs;
+
     display: flex;
     align-items: center;
     height: 100%;
+    padding: functions.rem(10) functions.rem(16);
+    font-weight: 500;
     color: var(--color-primary-white);
 
+    @include mixins.mq('tablet', min) {
+      padding: 0;
+    }
+
+    @include mixins.hover {
+      color: var(--color-accent);
+    }
+
     &--active {
-      text-decoration: underline;
+      color: var(--color-accent);
     }
   }
 

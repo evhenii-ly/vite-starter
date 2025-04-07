@@ -1,0 +1,19 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+@use "heading";
+
+%heading--h2 {
+  --h-w: 800;
+  --h-fs: #{functions.rem(20)};
+  --h-mb: #{functions.rem(8)};
+
+  @include mixins.mq('tablet', min) {
+    --h-fs: #{functions.rem(24)};
+    --h-mb: #{functions.rem(16)};
+  }
+}
+
+.heading--h2 {
+  @extend %heading;
+  @extend %heading--h2;
+}

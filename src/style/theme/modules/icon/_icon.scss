@@ -1,0 +1,7 @@
+@use "../../../core/functions/functions";
+
+.icon {
+  width: 1em;
+  height: 1em;
+  font-size: functions.rem(24);
+}

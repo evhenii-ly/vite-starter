@@ -1,16 +1,46 @@
 @use "../../../core/functions/functions";
+@use "../../modules/paragraph/paragraph";
+@use "../../modules/container/container";
 
 .cookie {
+  @extend %container;
+
+  pointer-events: none;
   position: fixed;
   z-index: functions.z-index(cookie);
-  bottom: functions.rem(30);
+  bottom: functions.rem(15);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  max-width: var(--container-width);
-  background-color: var(--color-primary-white);
+
+  &__inner {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: functions.rem(400);
+    padding: functions.rem(15);
+    background-color: var(--color-bg-2);
+    border: var(--border-base);
+    border-radius: var(--border-radius-base);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    margin-bottom: functions.rem(10);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    margin-right: functions.rem(16);
+    font-size: functions.rem(48);
+  }
+
+  &__text {
+    @extend %paragraph;
+  }
 
   &--hide {
     display: none;

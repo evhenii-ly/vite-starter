@@ -2,23 +2,30 @@
   /*
     Descriptive colors
     */
+  --color-base: #2E2484;
+  --color-cta: #8655F0;
+  --color-stroke: #D1D2F6;
+  --color-accent: #FDBD13;
 
   // Primary Colors
-  --color-primary-black: #000;
+  --color-primary-black: #2E2A31;
   --color-primary-white: #FFF;
 
-  // Supporting Colors
-  --color-supporting-yellow: #FA0;
-  --color-supporting-red: #C80835;
+  // State Colors
+  --color-success: #19BD5B;
+  --color-alert: #EA4C4C;
 
   // Backgrounds
-  --color-background: var(--color-primary-black);
+  --color-page-bg: #FAF9FF;
+  --color-bg-1: #F6F4FF;
+  --color-bg-2: #EAEBFD;
 
   // Main elements colors
-  --color-text-main: var(--color-primary-white);
+  --color-text: #1F1E23;
+  --color-grey-text: #898797;
 
   // Links
-  --color-link: var(--color-black);
+  --color-link: #237BFF;
   --color-link-hover: var(--color-dark-blue);
   --color-link-visited: var(--color-secondary-white);
 }

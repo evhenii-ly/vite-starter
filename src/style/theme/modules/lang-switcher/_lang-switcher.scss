@@ -1,7 +1,108 @@
+@use "../../../core/functions/functions";
+@use "../../../core/mixins/mixins";
+
 .lang-switcher {
-  color: inherit;
+  $this: &;
+
+  --lang-switcher-color: var(--color-primary-dark-blue);
+  --lang-switcher-bgcolor: var(--color-primary-black);
+  user-select: none;
+  position: relative;
+  height: 100%;
+
+  &--opened {
+    #{$this}__list {
+      pointer-events: auto;
+      transform-origin: top center;
+      opacity: 1;
+      animation: rotateMenu 0.3s ease-in-out forwards;
+    }
+
+    #{$this}__arrow-icon {
+      transform: scale(1, -1);
+    }
+  }
+
+  @include mixins.hover(false) {
+    #{$this}__list {
+      pointer-events: auto;
+      transform-origin: top center;
+      opacity: 1;
+      animation: rotateMenu 0.3s ease-in-out forwards;
+    }
+
+    #{$this}__arrow-icon {
+      transform: scale(1, -1);
+    }
+  }
+
+  &__current {
+    @include mixins.transition;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: var(--lang-switcher-color);
+
+    @include mixins.hover {
+      color: var(--color-primary-light-blue);
+
+      .lang-switcher__icon {
+        color: var(--color-primary-light-blue);
+      }
+    }
+  }
+
+  &__icon {
+    @include mixins.transition(color);
+
+    font-size: functions.rem(24);
+    color: var(--color-primary-dark-blue);
+  }
+
+  &__arrow-icon {
+    @include mixins.transition;
+
+    margin-left: functions.rem(8);
+    font-size: functions.rem(24);
+  }
 
   &__list {
-    background-color: var(--color-primary-black);
+    @include mixins.transition(opacity);
+
+    pointer-events: none;
+    position: absolute;
+    z-index: functions.z-index(lang-switcher);
+    top: 100%;
+    left: functions.rem(-15);
+    overflow: hidden;
+    padding: 0 functions.rem(15);
+    opacity: 0;
+    background-color: #0d0b6b;
+    border-bottom-right-radius: calc(var(--border-radius-base) / 2);
+    border-bottom-left-radius: calc(var(--border-radius-base) / 2);
+  }
+
+  &__link {
+    @include mixins.transition;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: functions.rem(5) 0;
+    color: var(--color-primary-dark-blue);
+    text-align: center;
+
+    &:last-of-type {
+      margin-bottom: 0;
+      padding-bottom: functions.rem(15);
+    }
+
+    @include mixins.hover {
+      color: var(--color-primary-light-blue);
+      opacity: 0.7;
+    }
   }
 }

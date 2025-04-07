@@ -1,0 +1,28 @@
+<section class="section principles-section">
+  <div class="container principles-section__content">
+    <h1 class="heading heading--h1 principles-section__heading">Editorial Principles</h1>
+
+    <div class="show-more principles-section__show-more">
+      <div class="show-more__content" style="--show-lines-count: 3">
+        <p class="paragraph principles-section__text">Editorial principles underpin our platform, providing consistent, accurate, and trustworthy
+          information. From research and analysis to publishing, these principles govern our content development. Our
+          readers trust us to provide transparent, well-researched information to make educated judgments. We follow
+          stringent rules to ensure quality while reviewing casinos, describing industry trends, or giving
+          recommendations. We maintain review integrity and build audience trust and loyalty by following clear editorial
+          criteria.</p>
+      </div>
+
+      <button class="more-button show-more__button"
+              type="button"
+              data-more-button="Show more, Show less">
+        <span class="more-button__text">Show more</span>
+        {% set icon = { class: "more-button__icon show-more__button-icon" } %}
+        {% include "partials/icons/chevron-down.svg" %}
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    {% include "partials/modules/media-card.html" %}
+  </div>
+</section>

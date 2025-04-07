@@ -1,0 +1,16 @@
+@use "../../../core/functions/functions";
+@use "../../modules/paragraph/sm";
+
+.more-button {
+  @extend %paragraph--sm;
+
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: var(--color-cta);
+
+  &__icon {
+    margin-left: functions.rem(4);
+    font-size: functions.rem(8);
+  }
+}
